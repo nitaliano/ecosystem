@@ -8,6 +8,7 @@ on:
     branches:
       - main
 
+
 jobs:
   publish-snapshot:
     name: Publish snapshot release to npm
