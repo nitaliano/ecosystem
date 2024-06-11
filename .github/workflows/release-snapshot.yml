@@ -11,7 +11,7 @@ on:
 jobs:
   publish-snapshot:
     name: Publish snapshot release to npm
-    if: github.repository == 'ethereum-optimism/ecosystem'
+    if: github.repository == 'nitaliano/ecosystem'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,7 +36,7 @@ jobs:
       - name: Publish snapshots
         uses: seek-oss/changesets-snapshot@v0
         with:
-          pre-publish: pnpm nx run-many --target=build --skip-nx-cache
+          pre-publish: pnpm nx run test-sdk:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
